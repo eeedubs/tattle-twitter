@@ -37,8 +37,13 @@ app.get("/tweets", function(req, res) {
 app.post("/liked/:id", function(req, res) {
   const {key} = req.params;
   knex('tweets')
-  .where({ id: key })
-  .update({ liked: 
+  .where({ 'id': key })
+  .update(knex.raw('SET CLICKED = NOT clicked'))
+  // .update('clicked', '!==', 'clicked')
+  .then((results) => {
+    console.log(results);
+  })
+})
 
 app.listen(PORT, () => {
   console.log(`live on port http://${LOCALHOST}:${PORT}`);
