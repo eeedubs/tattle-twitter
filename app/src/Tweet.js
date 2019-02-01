@@ -18,12 +18,12 @@ class Tweet extends Component {
 
   changeHeart(){
     if (this.state.clicked === true){
-      fetch(`${LOCALHOST}:${PORT}/liked/${this.state.key}`, {
-        method: 'PUT',
-      })
-      .then(() => {
-        this.setState({ clicked: false })
-      })
+      // fetch(`${LOCALHOST}:${PORT}/liked/${this.state.key}`, {
+      //   method: 'PUT',
+      // })
+      // .then(() => {
+      this.setState({ clicked: false })
+      // })
     } else {
       this.setState({ clicked: true })
     }
