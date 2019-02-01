@@ -65,14 +65,21 @@
 }
 
 .tweet-container {
-  /* display: inline; */
   display: flex;
   height: 8em;
   width: 85%;
+  border: 2px solid black;
   background-color: lightskyblue;
   .picture-container {
-    background-color: green;
     width: 22%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .picture-border {
+      height: 80%;
+      width: 80%;
+      border: 1px solid black;
+    }
   }
   .message-container {
     display: flex;
@@ -80,15 +87,24 @@
     width: 100%;
     height: 100%;
     .tweet-container {
-      background-color: yellow;
       width: 100%;
       flex: 10;
+      border: 0;
+      p {
+        font-family: 'Helvetica';
+        padding: 0px 10px;
+      }
     }
     .like-container {
-      // display: block;
       width: 100%;
       flex: 3.5;
-      background-color: orange;
+      display: flex;
+      justify-content: flex-end;
+      .like-icon {
+        margin-right: 2em;
+        color: white;
+        font-size: 1.5em;
+      }
     }
   }
 }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './styles/styles.scss';
 const FontAwesome = require('react-fontawesome');
-// import Icon from '@material-ui/core/Icon';
-// import 'font-awesome/css/font-awesome.min.css';
 
 class Header extends Component {
 
