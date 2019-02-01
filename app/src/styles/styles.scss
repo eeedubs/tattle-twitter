@@ -14,7 +14,7 @@
   z-index: 1;
   border-bottom: 1px black solid;
   .nav-icon-container {
-    width: 40%;
+    width: 45%;
     display: flex;
     .nav-icon {
       color: white;
@@ -24,7 +24,7 @@
     }
   }
   .nav-text-container {
-    width: 60%;
+    width: 55%;
     display: flex;
     p {
       color: white;
@@ -41,7 +41,7 @@
   left: -0.5em;
   background-color: lightgrey;
   height: 100vh;
-  width: 25%;
+  width: 30%;
   display: flex;
   justify-content: center;
   p {
@@ -55,11 +55,11 @@
 
 .content-feed {
   position: fixed;
-  display: flex;
   top: 3.5em;
-  left: 24%;
+  left: 30%;
   height: 100vh;
-  width: 76%;
+  width: 66%;
+  height: 100%;
   justify-content: center;
   padding-top: 2em;
 }
@@ -67,32 +67,36 @@
 .tweet-container {
   display: flex;
   height: 8em;
-  width: 85%;
+  width: 95%;
+  margin: 10px;
+  padding: 5px;
   border: 2px solid black;
   background-color: lightskyblue;
   .picture-container {
-    width: 22%;
+    margin-right: 5px;
+    margin-left: 10px;
     display: flex;
-    justify-content: center;
+
     align-items: center;
-    .picture-border {
-      height: 80%;
-      width: 80%;
+    .tweet-picture {
       border: 1px solid black;
+      width: 120px;
+      height: 105px;
     }
   }
   .message-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: inherit;
     height: 100%;
+    overflow: hidden;
+    white-space: pre-wrap;
     .tweet-container {
-      width: 100%;
+      width: inherit;
       flex: 10;
       border: 0;
       p {
         font-family: 'Helvetica';
-        padding: 0px 10px;
       }
     }
     .like-container {
@@ -100,9 +104,14 @@
       flex: 3.5;
       display: flex;
       justify-content: flex-end;
-      .like-icon {
+      .like-icon-clicked {
         margin-right: 2em;
-        color: white;
+        color: firebrick;
+        font-size: 1.5em;
+      }
+      .like-icon-unclicked {
+        margin-right: 2em;
+        color: lightslategrey;
         font-size: 1.5em;
       }
     }

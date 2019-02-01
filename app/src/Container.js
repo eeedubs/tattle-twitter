@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
 import './styles/styles.scss';
 import Tweet from './Tweet.js';
-// import Icon from '@material-ui/core/Icon';
-// import 'font-awesome/css/font-awesome.min.css';
 
 class Container extends Component {
+  // eslint-disable-next-line no-useless-constructor
+  constructor(props){
+    super(props);
+  }
 
   render() {
     return (
-      <nav className='content-feed'>
-        <Tweet />
-      </nav>
+      <div className='content-feed'>
+      {
+        this.props.messages.map((message) => {
+          return (
+            <Tweet
+              messageContent={message}
+              key={message.id}
+            />
+          )
+        })
+      }
+      </div>
     )
   }
 }
