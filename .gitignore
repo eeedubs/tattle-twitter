@@ -1,0 +1,9 @@
+/server/node_modules/**/*
+/app/node_modules/**/*
+/*/node_modules
+/server/.env
+./server/.env
+*/.env
+.env
+/app/env.js
+/server/.env
