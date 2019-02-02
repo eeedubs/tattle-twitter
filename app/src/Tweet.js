@@ -10,23 +10,24 @@ class Tweet extends Component {
   constructor(props){
     super(props)
     this.state = {
-      clicked: false,
-      key: this.props.key
+      liked: this.props.messageContent.liked,
+      key: this.props.messageContent.id
     };
     this.changeHeart = this.changeHeart.bind(this);
   }
 
   changeHeart(){
-    if (this.state.clicked === true){
-      // fetch(`${LOCALHOST}:${PORT}/liked/${this.state.key}`, {
-      //   method: 'PUT',
-      // })
-      // .then(() => {
-      this.setState({ clicked: false })
-      // })
-    } else {
-      this.setState({ clicked: true })
-    }
+    fetch(`${LOCALHOST}:${PORT}/liked/${this.state.key}`, {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      method: "PUT"
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.setState({ liked: data });
+    })
   }
 
   render() {
@@ -44,7 +45,7 @@ class Tweet extends Component {
           </div>
           <div className='like-container'>
             <FontAwesome name='heart' 
-            className={(this.state.clicked) ? "like-icon-clicked" : "like-icon-unclicked"}
+            className={(this.state.liked) ? "like-icon-clicked" : "like-icon-unclicked"}
             onClick={this.changeHeart}
             />
           </div>

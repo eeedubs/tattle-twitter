@@ -34,14 +34,33 @@ app.get("/tweets", function(req, res) {
   })
 })
 
-app.post("/liked/:id", function(req, res) {
-  const {key} = req.params;
+app.put("/liked/:id", function(req, res) {
+  const key = req.params.id;
+  console.log("Tweet ID: ", key);
   knex('tweets')
-  .where({ 'id': key })
-  .update(knex.raw('SET CLICKED = NOT clicked'))
-  // .update('clicked', '!==', 'clicked')
+  .select('liked')
+  .where('id', '=', key)
   .then((results) => {
-    console.log(results);
+    let clicked = results[0].liked;
+    if (clicked){
+      return knex('tweets')
+      .where('id', '=', key)
+      .update({liked: false})
+      .returning('liked')
+      .then((results) => {
+        console.log("Liked: ", results[0]);
+        res.json(results[0])
+      })
+    } else {
+      return knex('tweets')
+      .where('id', '=', key)
+      .update({liked: true})
+      .returning('liked')
+      .then((results) => {
+        console.log("Liked: ", results[0]);
+        res.json(results[0])
+      })
+    }
   })
 })
 

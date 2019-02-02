@@ -24,7 +24,7 @@ class App extends Component {
         headers :{
           "access-control-allow-origin": "localhost",
           "access-control-allow-credentials": "true"
-      }
+        }
       })
       .then(response => response.json())
       .then((data, error) => {

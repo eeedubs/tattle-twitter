@@ -12,11 +12,11 @@ class Container extends Component {
     return (
       <div className='content-feed'>
       {
-        this.props.messages.map((message) => {
+        this.props.messages.map((message, index) => {
           return (
             <Tweet
               messageContent={message}
-              key={message.id}
+              key={index}
             />
           )
         })
